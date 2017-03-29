@@ -68,7 +68,7 @@ window.onload = function () {
   // I hijacked this function in order to draw a list of gigs, based on the rule of
   // "while you're in there" that I made up. - mn
   function mapPoints(points, layers) {
-  var gigsListBuffer = "<hr>";
+  var gigsListBuffer = "";
   var gigsList = document.getElementById('gigs-list');
   var date;
 
@@ -79,7 +79,7 @@ window.onload = function () {
       if (point.Latitude !== "" && point.Longitude !== "") {
         var marker = L.marker([point.Latitude, point.Longitude], {
           icon: createMarkerIcon(point['Marker Icon'], 'fa', point['Marker Color'].toLowerCase(), point['Marker Icon Color'])
-        }).bindPopup("<b>" + point["Title"] + "</b><br>" + point["Description"]);
+        }).bindPopup("<b>" + point["Venue"] + "</b><br>" + point["Description"]);
         if (layers !== undefined && layers.length !== 1) {
           marker.addTo(layers[point.Layer]);
         }
@@ -95,7 +95,14 @@ window.onload = function () {
         var markUpDate = "<div class='date-container'>" + date.slice(0,3) + "<br>" + date.slice(3,7).toUpperCase() + "<br><span class='date-number'>" + date.slice(8,10) + "</span></div>";
 
 
-        gigsListBuffer += "<div class='gig-listing'>" + "<div class='year'>" + year + "</div>" + markUpDate + "<div class='gig-details-container'>" + "<div class='city-and-venue'><b>" + point["City"] + "</b><br>" + point["Title"] + "</div></div><div class='buy-tickets'><a href='" + point["Website"] + "'>Buy Tickets</a></div></div><hr>";
+        gigsListBuffer += "<div class='gig-listing'>" + "<div class='year'>" + year + "</div>" + markUpDate + "<div class='gig-details-container'>" + "<span class='city-and-venue'><span class='city'>" + point["City"] + "</span><br>"
+
+        if (point["Description"]) {
+
+          gigsListBuffer += "<span class='description'>" + point["Description"] + "</span><br>";
+
+        }
+        gigsListBuffer += point["Venue"] + "</span><span class='buy-tickets'><a href='" + point["Website"] + "'>Buy Tickets</a></span></div></div><hr class='gig-divider'>";
 
 
       }

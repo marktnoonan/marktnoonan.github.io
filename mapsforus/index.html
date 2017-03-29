@@ -76,6 +76,7 @@
           min-height: 80px;
           height: auto;
           font-size: 16px;
+          padding-top: 10px;
         }
 
         .gig-listing::after {
@@ -86,6 +87,7 @@
 
         .gig-details-container {
           padding-left: 2px;
+          padding-top: 5px;
           float: none;
           text-align: left;
           line-height: 25px;
@@ -125,6 +127,16 @@
             text-align: center;
         }
 
+        span.description {
+
+          font-style: italic;
+        }
+
+        span.city {
+          font-size: 18px;
+          font-weight: bold;
+        }
+
         a {
           text-decoration: none;
           color: #239583;
@@ -132,21 +144,25 @@
         .buy-tickets {
             font-weight: bold;
             border: 1px solid #555;
-            padding: 10px;
+            padding: 6px;
             display: inline-block;
             float:right;
-            margin-top: 10px;
-            margin-right: 10px;
+            margin: 2px;
+            background-color: #fff;
         }
 
-        tr:nth-child(even) {
-            background: #DDD
+      /*  .gig-listing:nth-child(even) {
+            background: #EEE;
+        } */
+
+        .gig-divider {
+          width: 50%;
         }
 
-        .awesome-marker-icon-lightblue {
+      /*  .awesome-marker-icon-lightblue {
     -webkit-filter: drop-shadow(0px 0px 2px #000);
     filter:         drop-shadow(0px 0px 2px #000);
-}
+} This was a big performance killer */
 
         .sk-fading-circle {
             margin: 100px auto;
