@@ -72,7 +72,9 @@ window.onload = function () {
       if (point.Latitude !== "" && point.Longitude !== "") {
         var marker = L.marker([point.Latitude, point.Longitude], {
           //icon: createMarkerIcon(point['Marker Icon'], 'fa', point['Marker Color'].toLowerCase(), point['Marker Icon Color'])
-        }).bindPopup("<b>" + point["Title"] + "</b><br>" + point["Description"]);
+        }).bindPopup('<b>' + point['Date'] + ' ' + point['City'] + '</b><br>' +
+        point['Venue'] + '<br><i>' + point['Description'] + '</i><br><a href="' +
+         point['Website'] + '">Website</a> | Phone: ' + point['Phone Number']);
         if (layers !== undefined && layers.length !== 1) {
           marker.addTo(layers[point.Layer]);
         }
